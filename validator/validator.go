@@ -2,7 +2,6 @@ package validator
 
 import (
 	"bytes"
-	"errors"
 	"fmt"
 	"io/ioutil"
 	"log"
@@ -34,17 +33,17 @@ func (v Validator) Validate(req *http.Request) (bool, error) {
 	ip, _, err := net.SplitHostPort(req.RemoteAddr)
 
 	if err != nil {
-		return false, errors.New(fmt.Sprintf("Could not get remote IP from req, err: %s", err))
+		return false, fmt.Errorf("Could not get remote IP from req, err: %s", err)
 	}
 
 	if !v.sourceNet.Contains(net.ParseIP(ip)) {
-		return false, errors.New("Remote IP incorrect")
+		return false, fmt.Errorf("Remote IP incorrect")
 	}
 
 	hook, err := githubhook.Parse([]byte(v.secret), req)
 
 	if err != nil {
-		return false, errors.New(fmt.Sprintf("Webhook umarshalling failed, err: %s", err))
+		return false, fmt.Errorf("Webhook umarshalling failed, err: %s", err)
 	}
 
 	//necessary because githubhook.Parse reads req.Body
