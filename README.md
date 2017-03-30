@@ -12,6 +12,8 @@ For more details see [flag][flag].
 
 ```
 Usage of webhook-validation-proxy:
+  -cidr string
+    	CIDR of GH servers (default "192.30.252.0/22")
   -config string
     	Path to config file
   -context string
