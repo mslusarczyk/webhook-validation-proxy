@@ -44,7 +44,8 @@ func validateAndProxy(w http.ResponseWriter, req *http.Request) {
 		log.Printf("%s, err: %s", msg, err)
 		w.WriteHeader(http.StatusBadRequest)
 		w.Write([]byte(msg))
+		return
 	}
-
+	
 	proxy.ServeHTTP(w, req)
 }
