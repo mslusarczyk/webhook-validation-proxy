@@ -1,8 +1,9 @@
 webhook-validation-proxy
 ===============================================
+[![Build Status](https://travis-ci.org/mslusarczyk/webhook-validation-proxy.svg?branch=master)](https://travis-ci.org/mslusarczyk/webhook-validation-proxy)
 Golang validation proxy for [github webhooks][github-webhooks]. It checks headers and payload-secret signature and if all is correct request is proxied to target.
 
-[![Build Status](https://travis-ci.org/mslusarczyk/webhook-validation-proxy.svg?branch=master)](https://travis-ci.org/mslusarczyk/webhook-validation-proxy)
+
 
 Setup
 -----------------------------------------------
