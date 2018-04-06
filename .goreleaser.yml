@@ -1,0 +1,11 @@
+before:
+  hooks:
+  - git tag v1.0.0
+builds:
+  - binary: webhook-validation-proxy
+    goos:
+      - windows
+      - darwin
+      - linux
+    goarch:
+      - amd64
